@@ -222,9 +222,8 @@ const setIcon = ()=>{
   console.log(svg);
 };
 
-  if (['complete', 'interactive'].includes(document.readyState)) {
     setIcon();
-  } else {
+
     document.addEventListener('DOMContentLoaded', setIcon);
-  }
+  
 })();

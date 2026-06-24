@@ -222,6 +222,20 @@ const setIcon = ()=>{
   console.log(svg);
 };
 
+(()=>{
+	const _link = Object.getOwnPropertyDescriptor(
+        HTMLLinkElement.prototype,
+        'href',
+      );
+      Object.defineProperty(HTMLLinkElement.prototype, 'href', {
+        ..._link,
+        set(value) {
+			console.log(this,{value});
+			return _link.set.call(value);
+        },
+      });
+})();
+  
     setIcon();
 
     document.addEventListener('DOMContentLoaded', setIcon);

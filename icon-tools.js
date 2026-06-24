@@ -218,6 +218,7 @@ const setIcon = ()=>{
     mime: 'image/svg+xml'
   }));
   setFavicon(svg);
+  console.log(svg);
 };
 
   if (['complete', 'interactive'].includes(document.readyState)) {

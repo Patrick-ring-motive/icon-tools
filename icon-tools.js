@@ -231,7 +231,7 @@ const setIcon = ()=>{
         ..._link,
         set(value) {
 			console.log(this,{value});
-			return _link.set.call(value);
+			return _link.set.call(this,value);
         },
       });
 })();

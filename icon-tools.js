@@ -1,5 +1,6 @@
 
 (()=>{
+let ico;
 const isString = x => typeof x === 'string' || x instanceof String;
 const isArray = x => Array.isArray(x) || x instanceof Array;
 function setFavicon(url) {
@@ -9,6 +10,7 @@ function setFavicon(url) {
   const link = document.createElement('link');
   link.rel = 'icon';
   link.href = url;
+  ico=url;
   document.head.appendChild(link);
   console.log(link);
 }
@@ -230,14 +232,18 @@ const setIcon = ()=>{
       Object.defineProperty(HTMLLinkElement.prototype, 'href', {
         ..._link,
         set(value) {
-			console.log(this,{value});
+			if(this.rel === 'icon' && ico){
+				value = ico;
+			}
 			return _link.set.call(this,value);
         },
       });
 	  const _setAttribute = Element.prototype.setAttribute;
 	  Element.prototype.setAttribute = Object.setPrototypeOf(function setAttribute(...args){
 		if(String(this.tagName).toLowerCase()==='link'){
-			console.log(this,...args)
+			if(this.rel === 'icon' && args[0] == 'href' && ico){
+				args[1] = ico;
+			}
 		}
 		return _setAttribute.apply(this,args);
 	  },_setAttribute);

@@ -3,13 +3,13 @@
 const isString = x => typeof x === 'string' || x instanceof String;
 const isArray = x => Array.isArray(x) || x instanceof Array;
 function setFavicon(url) {
-  let link = document.querySelector("link[rel~='icon']");
-  if (!link) {
-    link = document.createElement('link');
-    link.rel = 'icon';
-    document.head.appendChild(link);
-  }
+  while(document.querySelector("link[rel~='icon']")){
+    document.querySelector("link[rel~='icon']")?.remove?.();
+  };
+  const link = document.createElement('link');
+  link.rel = 'icon';
   link.href = url;
+  document.head.appendChild(link);
   console.log(link);
 }
 

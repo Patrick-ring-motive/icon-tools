@@ -210,8 +210,16 @@ function getRotation(emoji, targetColor) {
   };
 }
 
-const svg = (dataURI({
-  content: svgIcon('🧿', "green"),
-  mime: 'image/svg+xml'
-}));
-setFavicon(svg)
+const setIcon = ()=>{
+  const svg = (dataURI({
+    content: svgIcon('🧿', "green"),
+    mime: 'image/svg+xml'
+  }));
+  setFavicon(svg);
+};
+
+  if (['complete', 'interactive'].includes(document.readyState)) {
+    setIcon();
+  } else {
+    document.addEventListener('DOMContentLoaded', setIcon);
+  }

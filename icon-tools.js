@@ -12,7 +12,6 @@ function setFavicon(url) {
   link.href = url;
   ico=url;
   document.head.appendChild(link);
-  console.log(link);
 }
 
 function svgIcon(icon, rotate = 0) {
@@ -221,7 +220,6 @@ const setIcon = ()=>{
     mime: 'image/svg+xml'
   }));
   setFavicon(svg);
-  console.log(svg);
 };
 
 (()=>{

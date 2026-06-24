@@ -128,9 +128,9 @@ function getDisplayedEmojiColor(emoji, rotate = 0) {
   if (!count) return null;
 
   return [
-    Math.round(r / count),
-    Math.round(g / count),
-    Math.round(b / count)
+    ~~(r / count),
+    ~~(g / count),
+    ~~(b / count)
   ];
 }
 

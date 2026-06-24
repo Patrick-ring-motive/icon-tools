@@ -114,8 +114,8 @@ function getDisplayedEmojiColor(emoji, rotate = 0) {
     g = 0,
     b = 0,
     count = 0;
-
-  for (let i = 0; i < data.length; i += 4) {
+  const data_length = data.length;
+  for (let i = 0; i < data_length; i += 4) {
     const alpha = data[i + 3];
     if (alpha < 80) continue;
 

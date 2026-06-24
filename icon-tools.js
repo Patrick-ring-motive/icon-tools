@@ -10,12 +10,12 @@
             link.href = url;
   }
 
-function svgIcon(icon){
+function svgIcon(icon,rotate=0){
   return `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <defs>
     <filter id="hue">
-      <feColorMatrix type="hueRotate" values="180"/>
+      <feColorMatrix type="hueRotate" values="${rotate}"/>
     </filter>
   </defs>
 
@@ -43,5 +43,5 @@ function dataURI(options){
   return `data:${mime}${base64?';base64':''},${encodeURIComponent(decodeU(content))}`;
 }
 
-const svg = (dataURI({content:svgIcon('🐢'),mime:'image/svg+xml'}));
+const svg = (dataURI({content:svgIcon('🐢',90),mime:'image/svg+xml'}));
 setFavicon(svg)

@@ -1,3 +1,5 @@
+
+(()=>{
 const isString = x => typeof x === 'string' || x instanceof String;
 const isArray = x => Array.isArray(x) || x instanceof Array;
 function setFavicon(url) {
@@ -223,3 +225,4 @@ const setIcon = ()=>{
   } else {
     document.addEventListener('DOMContentLoaded', setIcon);
   }
+})();

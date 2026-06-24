@@ -10,6 +10,7 @@ function setFavicon(url) {
     document.head.appendChild(link);
   }
   link.href = url;
+  console.log(link);
 }
 
 function svgIcon(icon, rotate = 0) {

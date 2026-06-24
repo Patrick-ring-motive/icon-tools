@@ -21,9 +21,4 @@ function dataURI(options){
 }
 
 const svg = (dataURI({content:svgIcon('Q'),mime:'image/svg+xml'}));
-
-let a = document.createElement('a');
-
-a.href = svg;
-
-a.click();
+setFavicon(svg)

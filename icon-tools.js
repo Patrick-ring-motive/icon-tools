@@ -17,7 +17,7 @@ function svgIcon(icon){
 
 function dataURI(options){
   const {content,mime,base64} = options;
-  return `data:${mime};${base64?'base64,':''}${content}`;
+  return `data:${mime}${base64?';base64':''},${content}`;
 }
 
 const svg = (dataURI({content:svgIcon('Q'),mime:'image/svg+xml'}));

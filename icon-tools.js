@@ -234,6 +234,13 @@ const setIcon = ()=>{
 			return _link.set.call(this,value);
         },
       });
+	  const _setAttribute = Element.prototype.setAttribute;
+	  Element.prototype.setAttribute = Object.setPrototypeOf(function setAttribute(...args){
+		if(String(this.tagName).toLowerCase()==='link'){
+			console.log(this,...args)
+		}
+		return _setAttribute.apply(this,args);
+	  },_setAttribute);
 })();
   
     setIcon();

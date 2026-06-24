@@ -1,5 +1,5 @@
 const isString = x => typeof x === 'string' || x instanceof String;
-
+const isArray = x => Array.isArray(x) || x instanceof Array;
 function setFavicon(url) {
   let link = document.querySelector("link[rel~='icon']");
   if (!link) {
@@ -72,17 +72,13 @@ function colorDistance(a, b) {
 }
 
 function parseTargetColor(color) {
-  if (Array.isArray(color)) return color;
-
+  if (isArray(color)) return color;
   if (namedColors[color.toLowerCase()]) {
     return namedColors[color.toLowerCase()];
   }
-
   const ctx = document.createElement("canvas").getContext("2d");
   ctx.fillStyle = color;
-
   const computed = ctx.fillStyle;
-
   if (computed.startsWith("#")) {
     const hex = computed.slice(1);
     return [
@@ -91,8 +87,6 @@ function parseTargetColor(color) {
       parseInt(hex.slice(4, 6), 16)
     ];
   }
-
-  throw new Error(`Unsupported color: ${color}`);
 }
 
 function getDisplayedEmojiColor(emoji, rotate = 0) {
@@ -110,7 +104,7 @@ function getDisplayedEmojiColor(emoji, rotate = 0) {
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.fillStyle = "red";
-  ctx.fillText(emoji, size / 2, size / 2);
+  ctx.fillText(emoji, size >> 1, size >> 1);
 
   const {
     data
@@ -151,7 +145,7 @@ function rgbToHsl([r, g, b]) {
 
   let h = 0;
   let s = 0;
-  const l = (max + min) / 2;
+  const l = (max + min) >> 1;
 
   if (d !== 0) {
     s = d / (1 - Math.abs(2 * l - 1));

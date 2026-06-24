@@ -211,7 +211,7 @@ function getRotation(emoji, targetColor) {
 }
 
 const svg = (dataURI({
-  content: svgIcon('🐢', "blue"),
+  content: svgIcon('🧿', "green"),
   mime: 'image/svg+xml'
 }));
 setFavicon(svg)

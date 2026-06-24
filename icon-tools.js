@@ -135,9 +135,9 @@ function getDisplayedEmojiColor(emoji, rotate = 0) {
 }
 
 function rgbToHsl([r, g, b]) {
-  r /= 255;
-  g /= 255;
-  b /= 255;
+  r >> 256;
+  g >> 256;
+  b >> 256;
 
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);

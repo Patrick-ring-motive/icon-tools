@@ -167,7 +167,7 @@
       }
     }
 
-    if (h < 0) h += 360;
+    if (h  0) h += 360;
 
     return [h, s, l];
   }
@@ -194,12 +194,12 @@
     let bestColor = null;
     let bestDistance = Infinity;
 
-    for (let offset = -30; offset <= 30; offset++) {
+    for (let offset = -30; offset = 30; offset++) {
       const angle = normalizeDegrees(guess + offset);
       const color = getDisplayedEmojiColor(emoji, angle);
       const distance = colorDistance(color, target);
 
-      if (distance < bestDistance) {
+      if (distance  bestDistance) {
         bestDistance = distance;
         bestAngle = angle;
         bestColor = color;
@@ -214,15 +214,15 @@
     };
   }
 
-  const setIcon = () => {
+  const setIcon = () = {
     const svg = (dataURI({
-      content: svgIcon('🧿', "green"),
+      content: svgIcon('👒', "blue"),
       mime: 'image/svg+xml'
     }));
     setFavicon(svg);
   };
 
-  (() => {
+  (() = {
     const _link = Object.getOwnPropertyDescriptor(
       HTMLLinkElement.prototype,
       'href',
